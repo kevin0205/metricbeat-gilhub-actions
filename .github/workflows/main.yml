@@ -11,6 +11,7 @@ env:
   DOCKER_REPO: kevin0205/metricbeat
   TARGET_ARCH: linux/amd64,linux/arm64
   TARGET_VERSION: 7.6.2
+  TAG: "${TARGET_VERSION:-latest}"
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -52,7 +53,7 @@ jobs:
         #env:
         #    TAG: "${TARGET_VERSION:-latest}"
         run: |
-          echo ::set-env name=TAG::latest::"${TARGET_VERSION}"
+          #echo ::set-env name=TAG::latest::"${TARGET_VERSION}"
           docker buildx build \
           --progress plain \
           --platform=$TARGET_ARCH \
