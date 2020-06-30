@@ -1,0 +1,63 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+env:
+  DOCKER_CLI_EXPERIMENTAL: enabled
+  DOCKER_REPO: kevin0205/metricbeat
+  TARGET_ARCH: linux/amd64,linux/arm64
+  TARGET_VERSION: 7.5.2
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Docker Buildx
+        if: success()
+        run: |
+          #env DOCKER_CLI_EXPERIMENTAL=enabled
+          mkdir -p $HOME/.docker/cli-plugins
+          wget -O $HOME/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64
+          chmod 0750 $HOME/.docker/cli-plugins/docker-buildx
+      - name: Install QEMU
+        if: success()
+        run: |
+          curl -fsSL https://get.docker.com | sh
+          sudo systemctl restart docker
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+          docker buildx create --use --name xbuilder
+      #- name: Check Vesrion
+      #  run: |
+      #    docker version
+      #    docker buildx version
+      #    ls -al /proc/sys/fs/binfmt_misc/
+      #    docker buildx ls
+  #cd:
+  #  runs-on: ubuntu-latest
+  #  needs: ci
+  #  steps:
+      - uses: actions/checkout@v2
+      - name: Docker login
+        env:
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: |
+            echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin
+      - name: Run Buildx
+        env:
+            TAG: "${TARGET_VERSION:-latest}"
+        run: |
+          docker buildx build \
+          --progress plain \
+          --platform=$TARGET_ARCH \
+          --build-arg VERSION=$TARGET_VERSION \
+          -t $DOCKER_REPO:$TARGET_VERSION \
+          -t $DOCKER_REPO \
+          --push \
+          --file ./Dockerfile \
+          .
