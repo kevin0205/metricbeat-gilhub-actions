@@ -52,8 +52,8 @@ jobs:
       - name: Run Buildx
         #env:
         #    TAG: "${TARGET_VERSION:-latest}"
-        ::set-env TAG=latest::$TARGET_VERSION
         run: |
+          echo "::set-env TAG=latest::${TARGET_VERSION}"
           docker buildx build \
           --progress plain \
           --platform=$TARGET_ARCH \
