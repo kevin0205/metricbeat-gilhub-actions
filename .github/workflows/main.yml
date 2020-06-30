@@ -11,7 +11,7 @@ env:
   DOCKER_REPO: kevin0205/metricbeat
   TARGET_ARCH: linux/amd64,linux/arm64
   TARGET_VERSION: 7.6.2
-
+  TAG: "${{TARGET_VERSION:-latest}}"
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
           ls -al /proc/sys/fs/binfmt_misc/
           docker buildx inspect xbuilder --bootstrap
           docker buildx ls
-  #cd:
+  cd:
   #  runs-on: ubuntu-latest
   #  needs: ci
   #  steps:
