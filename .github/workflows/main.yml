@@ -31,17 +31,18 @@ jobs:
           sudo systemctl restart docker
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker buildx create --use --name xbuilder
-      #- name: Check Vesrion
-      #  run: |
-      #    docker version
-      #    docker buildx version
-      #    ls -al /proc/sys/fs/binfmt_misc/
-      #    docker buildx ls
+      - name: Check Vesrion
+        run: |
+          docker version
+          docker buildx version
+          ls -al /proc/sys/fs/binfmt_misc/
+          docker buildx inspect xbuilder --bootstrap
+          docker buildx ls
   #cd:
   #  runs-on: ubuntu-latest
   #  needs: ci
   #  steps:
-      - uses: actions/checkout@v2
+  #    - uses: actions/checkout@v2
       - name: Docker login
         env:
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -49,14 +50,15 @@ jobs:
         run: |
             echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin
       - name: Run Buildx
-        env:
-            TAG: "${TARGET_VERSION:-latest}"
+        #env:
+        #    TAG: "${TARGET_VERSION:-latest}"
+        ::set-env TAG=latest::$TARGET_VERSION
         run: |
           docker buildx build \
           --progress plain \
           --platform=$TARGET_ARCH \
           --build-arg VERSION=$TARGET_VERSION \
-          -t $DOCKER_REPO:$TARGET_VERSION \
+          -t $DOCKER_REPO:$TAG \
           -t $DOCKER_REPO \
           --push \
           --file ./Dockerfile \
