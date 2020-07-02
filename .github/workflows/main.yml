@@ -10,12 +10,13 @@ env:
   DOCKER_CLI_EXPERIMENTAL: enabled
   DOCKER_REPO: kevin0205/metricbeat
   TARGET_ARCH: linux/amd64,linux/arm64
-  TARGET_VERSION: 7.6.2
+  #TARGET_VERSION: 7.6.2
+  TARGET_VERSION: 7.5.2
 jobs:
   ci:
     #runs-on: ubuntu-latest (ubuntu-18.04)
-    runs-on: ubuntu-20.04
-    #runs-on: ubuntu-16.04
+    #runs-on: ubuntu-20.04
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v2
       - name: Install Docker
