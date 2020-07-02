@@ -7,7 +7,7 @@ Test GitHub Actions：Success
 5. Build Multi Architecture Docker Image (amd64 / arm64)  
 6. Auto Push DockerHub  
   
-# GitHub Hosted Runners Build Server Info
+# GitHub Hosted Runners (Build system information)
 # Cloud Instance
     Microsoft Azure
 
