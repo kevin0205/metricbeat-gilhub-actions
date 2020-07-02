@@ -45,3 +45,6 @@ Test GitHub Actions
      docker-init:
       Version:          0.18.0
       GitCommit:        fec3683
+
+# docker buildx version
+    github.com/docker/buildx v0.4.1 bda4882a65349ca359216b135896bddc1d92461c
