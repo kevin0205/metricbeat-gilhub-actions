@@ -12,8 +12,9 @@ Test GitHub Actions：Success
     Microsoft Azure
 
 # Custom Operating System and Version：Yes
-    runs-on: ubuntu-latest (ubuntu-18.04)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest (ubuntu-18.04) [Build：：Success]
+    runs-on: ubuntu-20.04 [Build：：Success]
+    runs-on: ubuntu-16.04 [Build：：Success]
 
 # lsb_release -a
     Distributor ID:	Ubuntu
