@@ -13,7 +13,8 @@ env:
   TARGET_VERSION: 7.6.2
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest (ubuntu-18.04)
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Install Docker Buildx
