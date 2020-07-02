@@ -9,14 +9,14 @@ Test GitHub Actions
   
 Build Server Info (Check OS / Kernel Version)  
 
-# lsb_release -a  
+# lsb_release -a
     Distributor ID:	Ubuntu  
     Description:	Ubuntu 18.04.4 LTS  
     Release:	18.04  
     Codename:	bionic  
-  
-# uname -r  
-  
+
+# uname -r
+    5.3.0-1031-azure
   
 # docker version  
   
