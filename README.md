@@ -25,8 +25,17 @@ Test GitHub Actions：Success
     Release:	20.04
     Codename:	focal
 
+    Distributor ID:	Ubuntu
+    Description:	Ubuntu 16.04.6 LTS
+    Release:	16.04
+    Codename:	xenial
+
 # uname -r
+    Ubuntu 20.04 LTS
     5.4.0-1019-azure
+
+    Ubuntu 16.04.6 LTS
+    4.15.0-1089-azure
   
 # docker version  
     Client: Docker Engine - Community
