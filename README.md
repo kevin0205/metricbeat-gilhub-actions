@@ -9,7 +9,7 @@ Test GitHub Actions：Success
   
 # GitHub Actions Hosted Runners (Build system information)
 # Cloud Instance
-    Microsoft Azure
+    Microsoft Azure VMs
 
 # Custom Operating System and Version：Yes
     runs-on: ubuntu-latest (ubuntu-18.04) [Build：：Success]
