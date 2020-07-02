@@ -16,13 +16,13 @@ Test GitHub Actions
     runs-on: ubuntu-20.04
 
 # lsb_release -a
-    Distributor ID:	Ubuntu  
-    Description:	Ubuntu 18.04.4 LTS  
-    Release:	18.04  
-    Codename:	bionic  
+    Distributor ID:	Ubuntu
+    Description:	Ubuntu 20.04 LTS
+    Release:	20.04
+    Codename:	focal
 
 # uname -r
-    5.3.0-1031-azure
+    5.4.0-1019-azure
   
 # docker version  
     Client: Docker Engine - Community
