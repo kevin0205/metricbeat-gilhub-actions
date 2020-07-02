@@ -5,3 +5,13 @@ Test GitHub Actions
 3. Use GitHub Actions (Workflows)  
 4. Build Multi Architecture Docker Image (amd64 / arm64)  
 5. Auto Push DockerHub  
+  
+Build Server Info (Check OS / Kernel Version)  
+lsb_release -a  
+  
+  
+uname -r  
+  
+  
+docker version  
+  
