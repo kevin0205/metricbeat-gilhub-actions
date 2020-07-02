@@ -16,6 +16,9 @@ Test GitHub Actions：Success
     runs-on: ubuntu-20.04 [Build：Success]
     runs-on: ubuntu-16.04 [Build：Success]
 
+    ubuntu-20.04 (focal)
+    ubuntu-16.04 (xenial)
+
 # lsb_release -a
     Distributor ID:	Ubuntu
     Description:	Ubuntu 20.04 LTS
