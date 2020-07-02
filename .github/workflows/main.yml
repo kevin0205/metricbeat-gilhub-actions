@@ -31,6 +31,8 @@ jobs:
           docker buildx create --use --name xbuilder
       - name: Check Vesrion
         run: |
+          lsb_release -a
+          uname -r
           docker version
           docker buildx version
           ls -al /proc/sys/fs/binfmt_misc/
