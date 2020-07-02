@@ -20,14 +20,15 @@ jobs:
       - name: Install Docker Buildx
         if: success()
         run: |
+          curl -fsSL https://get.docker.com | sh
+          sudo systemctl restart docker
           mkdir -p $HOME/.docker/cli-plugins
           wget -O $HOME/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64
           chmod 0750 $HOME/.docker/cli-plugins/docker-buildx
+          #echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
       - name: Install QEMU
         if: success()
         run: |
-          curl -fsSL https://get.docker.com | sh
-          sudo systemctl restart docker
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker buildx create --use --name xbuilder
       - name: Check Vesrion
