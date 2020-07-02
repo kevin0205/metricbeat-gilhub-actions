@@ -8,6 +8,13 @@ Test GitHub Actions
 6. Auto Push DockerHub  
   
 # Build Server Info (Check OS / Kernel Version)
+# Cloud Instance
+    Microsoft Azure
+
+# Custom Operating System and Version：Yes
+    runs-on: ubuntu-latest (ubuntu-18.04)
+    runs-on: ubuntu-20.04
+
 # lsb_release -a
     Distributor ID:	Ubuntu  
     Description:	Ubuntu 18.04.4 LTS  
