@@ -8,11 +8,12 @@ Test GitHub Actions
 6. Auto Push DockerHub  
   
 Build Server Info (Check OS / Kernel Version)  
+
 # lsb_release -a  
     Distributor ID:	Ubuntu  
-  Description:	Ubuntu 18.04.4 LTS  
-  Release:	18.04  
-  Codename:	bionic  
+    Description:	Ubuntu 18.04.4 LTS  
+    Release:	18.04  
+    Codename:	bionic  
   
 # uname -r  
   
