@@ -20,11 +20,11 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v2
-      - name: Install Docker
-        if: success()
-        run: |
-          curl -fsSL https://get.docker.com | sh
-          sudo systemctl restart docker
+      #- name: Install Docker
+      #  if: success()
+      #  run: |
+      #    curl -fsSL https://get.docker.com | sh
+      #    sudo systemctl restart docker
       - name: Install Docker Buildx
         if: success()
         run: |
